@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config/env.js:/app/dist/env.js:ro
+      
+  postgres:
+    image: "postgres:16-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "variable-pricing-calculator"
+      POSTGRES_PASSWORD: "password"
