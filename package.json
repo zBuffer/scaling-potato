@@ -17,7 +17,7 @@
     "test:watch": "jest --runInBand --watch",
     "test:cov": "jest --runInBand --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --runInBand --config ./test/jest-e2e.json",
+    "test:e2e": "npm run migration:run && jest --runInBand --config ./test/jest-e2e.json",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "migration:generate": "npm run typeorm -- migration:generate -d src/ormconfig.ts src/migrations/migration",
     "migration:run": "npm run typeorm -- migration:run -d src/ormconfig.ts",

@@ -198,6 +198,22 @@ export const findTestPricingRule = async (
 };
 
 export const createTestFixture = async (module: TestingModule) => {
+  const recruitmentFeeQuotationService =
+    module.get<RecruitmentFeeQuotationsService>(
+      RecruitmentFeeQuotationsService,
+    );
+  await recruitmentFeeQuotationService.clear();
+
+  const agencyFeeQuotationService = module.get<AgencyFeeQuotationsService>(
+    AgencyFeeQuotationsService,
+  );
+  await agencyFeeQuotationService.clear();
+
+  const recruitmentBriefService = module.get<RecruitmentBriefsService>(
+    RecruitmentBriefsService,
+  );
+  await recruitmentBriefService.clear();
+
   const pricingRulesService =
     module.get<PricingRulesService>(PricingRulesService);
   await pricingRulesService.clear();
@@ -219,22 +235,6 @@ export const createTestFixture = async (module: TestingModule) => {
 
   for (const record of TestPricingRules_ForService)
     await pricingRulesService.create(record);
-
-  const recruitmentFeeQuotationService =
-    module.get<RecruitmentFeeQuotationsService>(
-      RecruitmentFeeQuotationsService,
-    );
-  await recruitmentFeeQuotationService.clear();
-
-  const agencyFeeQuotationService = module.get<AgencyFeeQuotationsService>(
-    AgencyFeeQuotationsService,
-  );
-  await agencyFeeQuotationService.clear();
-
-  const recruitmentBriefService = module.get<RecruitmentBriefsService>(
-    RecruitmentBriefsService,
-  );
-  await recruitmentBriefService.clear();
 
   const pricingRule = await pricingRulesService.findLatest(
     TestPricingRules_ForService[0].job_classification_id,
