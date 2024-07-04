@@ -83,6 +83,6 @@ export class AgencyFeeQuotationsService {
    * Clears all agency fee quotations.
    */
   async clear() {
-    await this.AgencyFeeQuotationRepository.clear();
+    await this.AgencyFeeQuotationRepository.delete({});
   }
 }

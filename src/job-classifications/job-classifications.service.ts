@@ -82,6 +82,6 @@ export class JobClassificationsService {
    * Clears all job classifications.
    */
   async clear() {
-    await this.jobClassificationRepository.clear();
+    await this.jobClassificationRepository.delete({});
   }
 }

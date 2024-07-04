@@ -76,6 +76,6 @@ export class JobLocationsService {
    * Clears all job locations.
    */
   async clear() {
-    await this.jobLocationRepository.clear();
+    await this.jobLocationRepository.delete({});
   }
 }

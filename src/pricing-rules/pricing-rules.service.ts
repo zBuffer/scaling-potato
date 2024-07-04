@@ -160,7 +160,7 @@ export class PricingRulesService {
    * Clears all pricing rules.
    */
   async clear() {
-    await this.pricingRuleRepository.clear();
+    await this.pricingRuleRepository.delete({});
   }
 
   /**

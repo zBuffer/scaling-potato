@@ -186,7 +186,7 @@ export class RecruitmentBriefsService {
    * Clears all recruitment briefs.
    */
   async clear() {
-    await this.RecruitmentBriefRepository.clear();
+    await this.RecruitmentBriefRepository.delete({});
   }
 }
 

@@ -83,6 +83,6 @@ export class RecruitmentFeeQuotationsService {
    * Clears all recruitment fee quotations.
    */
   async clear() {
-    await this.RecruitmentFeeQuotationRepository.clear();
+    await this.RecruitmentFeeQuotationRepository.delete({});
   }
 }
